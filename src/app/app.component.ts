@@ -9,11 +9,9 @@ import { HttpProviderService } from './http-provider.service';
 })
 export class AppComponent {
 
-title = 'app';
 newcoach = {
   	name : '',
   	description : '',
-  	image_url : ''
   }
 coaches;
 
@@ -21,7 +19,7 @@ constructor(public httpService : HttpProviderService){
 		this.httpService.getCoach()
 		.subscribe(data => {
 			console.log(data);
-			this.coaches(data);
+			this.coaches=data;
 		})
 	}
  
@@ -34,7 +32,6 @@ saveCoach(newcoach){
   		this.newcoach = {
 	  	name : '',
 	  	description : '',
-	  	image_url : ''
 	  }
   	})
   }
